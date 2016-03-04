@@ -1,0 +1,39 @@
+---
+layout: default
+class: 'home'
+---
+<!--<div class="banner">-->
+<!--<img class="ui image" src="/img/banner.png" alt="">-->
+<!--</div>-->
+<div class="ui container">
+    <div class="ui two column stackable grid">
+        <div class="ten wide column">
+            <div class="ui green message">
+                <h5>Alert</h5>
+                Here an important Alert
+            </div>
+            <div class="ui two column internally celled stackable grid">
+                {% for post in site.posts %}
+                <div class="column">
+                    <a href="{{ post.url | prepend: site.baseurl }}">
+                        <h5>{{ post.title }}</h5>
+                    </a>
+                    <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+                    <p>{{ post.excerpt }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="six wide column">
+            <a href="#" class="ui big yellow button">Pay Dues</a>
+            <div class="ui divider"></div>
+            put calendar stuff here
+        </div>
+    </div>
+    <div class="ui one column center aligned grid">
+        <div class="column">
+            <div id="instafeed"></div>
+            <span>Follow us on <a href="{{ site.data.social.service[0].url }}" target="_blank">Instagram</a></span>
+        </div>
+    </div>
+</div>

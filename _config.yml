@@ -1,0 +1,108 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: SCPNA
+email: sscowart@gmail.com
+description: > # this means to ignore newlines
+  Information, connection, and resources for the Southside Cowart Place
+  Neighborhood Association in beautiful Chattanooga, TN.
+url: "http://sscowart.com" # the base hostname & protocol for your site
+      
+service: 
+  instagram:
+    user_id: '3005385170'
+    client_id: '62da9c3f0c244fcb8530f5c3b8837a37'
+    access_token: '3005385170.62da9c3.16f1ccff34a04cda9bad2d8cb84d2d3e'
+  google:
+    browser_key: 'AIzaSyCn2E1OrXRdTDXToluT89RwF_eh3QEMhR4'
+    calendar: '7jj7l7eujqefdnq7gt2cgmbei0@group.calendar.google.com'
+
+# Standard Config Keys
+
+# Where things are
+source:       .
+destination:  ./_site
+plugins_dir:  ./_plugins
+layouts_dir:  ./_layouts
+data_dir:     ./_data
+includes_dir: ./_includes
+collections:  null
+
+# Default front matter
+
+
+# Handling Reading
+safe:         false
+include:
+  - ".htaccess"
+exclude:
+  - "node_modules"
+  - "semantic/src"
+  - "semantic/tasks"
+  - "semantic/gulpfile.js"
+  - "package.json"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "README.md"
+keep_files:   [".git", ".svn"]
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      false
+unpublished: false
+
+# Plugins
+whitelist: []
+gems:      []
+
+# Conversion
+markdown:    kramdown
+highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Serving
+detach:  false
+port:    4000
+host:    127.0.0.1
+baseurl: "" # does not include hostname
+
+# Outputting
+permalink:     date
+paginate_path: /page:num
+timezone:      America/New_York
+
+quiet:    false
+defaults: []
+
+# Markdown Processors
+rdiscount:
+  extensions: []
+
+redcarpet:
+  extensions: []
+
+kramdown:
+  auto_ids:       true
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+  coderay:
+    coderay_wrap:              div
+    coderay_line_numbers:      inline
+    coderay_line_number_start: 1
+    coderay_tab_width:         4
+    coderay_bold_every:        10
+    coderay_css:               style

@@ -1,0 +1,169 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script type="text/javascript" src="{{ '/scripts/instafeed.min.js' | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ '/semantic/dist/semantic.min.js' | prepend: site.baseurl }}"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('#sidebar')
+                .sidebar('attach events', '#navMobile .right.menu .item')
+        ;
+
+        $('iframe').load(function (foo, bar) {
+
+            var $iframe = $(event.target);
+            $iframe.prev().removeClass('active');
+        });
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    (function () {
+
+        if (document.getElementById('instafeed')) {
+            // Settings for Instagram.com sscowart
+            var userId = "{{ site.service.instagram.user_id }}";
+            var clientId = "{{ site.service.instagram.client_id }}";
+            var accessToken = "{{ site.service.instagram.access_token }}";
+
+            var feed = new Instafeed({
+                get: 'user',
+                userId: userId,
+                accessToken: accessToken
+            });
+            feed.run();
+        }
+
+    })();
+
+</script>
+
+<script>
+
+    (function (window, $, Handlebars, undefined) {
+
+        var today = new Date();
+        var iso = today.toJSON();
+
+        var myKey = "{{ site.service.google.browser_key }}"; // typically like Gtg-rtZdsreUr_fLfhgPfgff
+        var calendarId = "{{ site.service.google.calendar }}"; // will look somewhat like 3ruy234vodf6hf4sdf5sd84f@group.calendar.google.com
+
+        var calendarParams = {
+            key: myKey,
+            timeMin: iso,
+            maxResults: 10,
+            singleEvents: true,
+            orderBy: "startTime"
+        };
+
+        function serialize(obj) {
+            var foo = '';
+
+            $.each(obj, function (key, prop) {
+                if (key == 'key') {
+                    foo += key + '=' + prop;
+                    return;
+                }
+
+                foo += '&' + key + '=' + prop;
+            });
+
+            return foo;
+        }
+
+        var params = serialize(calendarParams);
+        console.log(params);
+        function formatTimeHHMMA(d) {
+            function z(n) {
+                return (n < 10 ? '0' : '') + n
+            }
+
+            var h = d.getHours();
+            return (h % 12 || 12) + ':' + z(d.getMinutes()) + ' ' + (h < 12 ? 'AM' : 'PM');
+        }
+
+        function setEventDate(item) {
+
+            var startDateTime = new Date(item.start.dateTime),
+                    endDateTime = new Date(item.end.dateTime),
+                    startDate = startDateTime.toDateString(),
+                    endDate = endDateTime.toDateString(),
+                    startTime = formatTimeHHMMA(startDateTime),
+                    endTime = formatTimeHHMMA(endDateTime);
+
+            var date = {};
+
+            date.sameDay = (startDate == endDate);
+
+            if (date.sameDay) {
+                date.start = startDate;
+                date.startTime = startTime;
+                date.endTime = endTime;
+                return date;
+            }
+
+            date.start = startDate + ', at ' + startTime;
+            date.end = endDate + ', at ' + endTime;
+            return date;
+        }
+
+        function buildList(response) {
+
+            var events = [];
+
+            $.each(response.items, function (index, item) {
+                var event = {};
+
+                event.date = setEventDate(item);
+
+                event.title = item.summary || '';
+                event.description = item.description || '';
+                event.location = item.location || '';
+                events.push(event);
+            });
+
+            var source = $("#tmplCalendarEvents").html();
+            var template = Handlebars.compile(source);
+
+            $('#calendarList').append(template({events: events}));
+        };
+
+        $.ajax({
+            type: 'GET',
+            url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events?' + params),
+            dataType: 'json',
+            success: function (response) {
+                buildList(response);
+                console.log('success', response);
+                //do whatever you want with each
+            },
+            error: function (response) {
+                console.log('error', response);
+                //tell that an error has occurred
+            }
+        });
+
+    })(window, jQuery, window.Handlebars);
+
+</script>
+
+<script type="text/javascript">
+    //    $.ajax({
+    //        type: 'GET',
+    //        url: encodeURI('https://www.googleapis.com/drive/v2/files/0BycyyaEIrAVnYlR6U1hjWHFCTGs/children?key=ya29.mwJFmqQ-GbF6-KhOcgOz6qBNGSuWb5lXklzYB9bb36j4Ro7RbZF1Mm9ZNL8-zHEFbQ'),
+    //        dataType: 'json',
+    //        success: function (response) {
+    //            console.log('success2', response);
+    //            //do whatever you want with each
+    //        },
+    //        error: function (response) {
+    //            console.log('error2', response);
+    //            //tell that an error has occurred
+    //        }
+    //    });
+</script>

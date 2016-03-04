@@ -1,0 +1,8 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@colorBrand: #0a4a09;
+@colorGrayLight: #ddd;
+@colorGray: #bbb;
+@defaultBorderRadius: 0;

@@ -1,0 +1,39 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+
+.pusher {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.pusher > main {
+    padding: 3.8rem 0;
+    flex: 1;
+}
+
+.pusher > footer.site.footer {
+
+    border-top: 1px solid rgba(34,36,38,.15);
+    padding: 1rem 0;
+    
+    .icon {
+        color: @colorBrand;
+    }
+}
+
+.text.meta {
+    color: @colorGray;
+}
+
+body.page.initiatives main.content {
+    margin-top: 1rem;
+    background-color: @colorGrayLight;
+}
+
+body.page.new-initiative main.content {
+    padding-bottom: 0;
+    background-color: rgb(225, 242, 193); // hack: match google form
+}

@@ -1,0 +1,27 @@
+<footer class="site footer">
+
+    <div class="ui container">
+
+        <div class="ui two column stackable grid">
+            <div class="six wide column">
+                <h2 class="footer-heading">{{ site.title }}</h2>
+                {% if site.description %}
+                <p>{{ site.description }}</p>
+                {% endif %}
+            </div>
+            <div class="right aligned ten wide column">
+                {% if site.data.social %}
+                <div class="ui big horizontal list">
+                    {% for social in site.data.social %}
+                    <a href="{{social.url}}" class="item">
+                        <i class="circular {{social.service}} icon"></i>
+                    </a>
+                    {% endfor %}
+                </div>
+                {%endif %}
+                <p class="rss-subscribe">Subscribe <a href="{{ '/feed.xml' | prepend: site.baseurl }}">via RSS</a></p>
+            </div>
+        </div>
+    </div>
+
+</footer>

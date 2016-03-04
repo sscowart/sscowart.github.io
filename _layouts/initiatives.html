@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<div class="ui container">
+
+    <div class="ui one column grid">
+        <div class="sixteen wide column">
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <h2>{{ page.title }}</h2>
+                </div>
+                <div class="ui segment">
+                    <p>{{ content }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui two column stackable grid">
+        <div class="ten wide column">
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <h5>Existing Applications</h5>
+                    <p class="text meta">Review current initiatives before submitting a new initiative to avoid
+                        duplicates. Select a link to view in Google Drive.</p>
+                </div>
+                <div class="ui segment">
+                    <div class="ui active inverted dimmer">
+                        <div class="ui loader"></div>
+                    </div>
+                    <iframe id="intiativesList"
+                            src="https://drive.google.com/embeddedfolderview?id=0BycyyaEIrAVnYlR6U1hjWHFCTGs#list"
+                            width="100%"
+                            height="250" frameborder="0">
+                    </iframe>
+                </div>
+                <div class="ui right aligned segment">
+                    <a href="https://drive.google.com/folderview?id=0BycyyaEIrAVnYlR6U1hjWHFCTGs&usp=sharing
+" target="_blank">See all</a>
+                </div>
+            </div>
+        </div>
+        <div class="six wide column">
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <h5>Resources</h5>
+                    <p class="text meta">The docs provide a better understanding of the initiatives process.</p>
+                </div>
+                <div class="ui segment">
+                    <div class="ui active inverted dimmer">
+                        <div class="ui loader"></div>
+                    </div>
+                    <iframe src="https://drive.google.com/embeddedfolderview?id=0BycyyaEIrAVnTkpINXlCTEU1dVk#list"
+                            width="100%"
+                            height="250" frameborder="0"></iframe>
+                </div>
+                <div class="ui right aligned segment">
+                    <a href="https://drive.google.com/folderview?id=0BycyyaEIrAVnTkpINXlCTEU1dVk&usp=sharing
+" target="_blank">See all</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui basic center aligned segment">
+        <a href="/initiatives/new" class="ui massive orange button">New Initiative</a>
+    </div>
+</div>

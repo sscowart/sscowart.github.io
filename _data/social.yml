@@ -1,0 +1,5 @@
+- service: facebook
+  url: "https://www.facebook.com/SouthSideChattanooga/"
+
+- service: instagram
+  url: "https://www.instagram.com/sscowart/"

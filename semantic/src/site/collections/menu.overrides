@@ -1,0 +1,17 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+#navMobile {
+  display: none;
+}
+
+@media screen and (max-width:400px) {
+    #navDesktop {
+        display: none;
+    }
+    
+    #navMobile {
+        display: inherit;
+    }
+}

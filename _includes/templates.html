@@ -1,0 +1,30 @@
+<script id="tmplCalendarEvents" type="text/template">
+    {% raw %}
+    <div class="ui very relaxed divided list">
+        {{#events}}
+        <div class="item">
+            <h2>{{title}}</h2>
+            <div class="content">
+                {{#if date.sameDay}}
+                <div class="header">
+                    {{date.start}} ({{date.startTime}} to {{date.endTime}})
+                </div>
+                {{else}}
+                <div class="header">
+                    {{date.start}} to <br/>
+                    {{date.end}}
+                </div>
+                {{/if}}
+                {{#if location}}
+                <div class="meta">
+                    <a href="http://maps.google.com/maps?q={{location}}"
+                       target="_blank">{{location}}</a>
+                </div>
+                {{/if}}
+                <div class="description">{{{description}}}</div>
+            </div>
+        </div>
+        {{/events}}
+    </div>
+    {% endraw %}
+</script>

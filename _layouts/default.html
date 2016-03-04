@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body class="ssc page {{ page.title | downcase | replace: ' ' , '-' }}">
+
+{% include sidebar.html %}
+
+<div class="pusher">
+
+    {% include header.html %}
+
+    <main class="content">
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+</div>
+
+{% include templates.html %}
+{% include scripts.html %}
+</body>
+
+</html>

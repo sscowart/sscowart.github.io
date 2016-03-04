@@ -1,0 +1,6 @@
+{% for link in site.data.navigation %}
+<a href="{{ link.url | prepend: site.baseurl }}" class="item {% if page.url contains link.url %} active{% endif %}">
+    {{ link.title }}
+</a>
+{% endfor %}
+
