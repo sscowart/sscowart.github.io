@@ -1,39 +1,34 @@
 ---
 layout: default
-class: 'home'
+title: Home
 ---
-<!--<div class="banner">-->
-<!--<img class="ui image" src="/img/banner.png" alt="">-->
-<!--</div>-->
+<div class="header banner">
+    <img class="ui fluid image" src="/img/banner_2.jpg" alt="">
+</div>
 <div class="ui container">
-    <div class="ui two column stackable grid">
-        <div class="ten wide column">
-            <div class="ui green message">
-                <h5>Alert</h5>
-                Here an important Alert
-            </div>
-            <div class="ui two column internally celled stackable grid">
-                {% for post in site.posts %}
-                <div class="column">
-                    <a href="{{ post.url | prepend: site.baseurl }}">
-                        <h5>{{ post.title }}</h5>
-                    </a>
-                    <span>{{ post.date | date: "%b %-d, %Y" }}</span>
-                    <p>{{ post.excerpt }}</p>
-                </div>
-                {% endfor %}
-            </div>
+    <div class="ui three column stackable internally celled grid">
+        <div class="five wide column">
+            {% for alert in site.data.alert %}
+            {% include alert.message.html %}
+            {% endfor %}
+            <h2>Calendar</h2>
+            {% include calendar.list.html limit=3 %}
         </div>
         <div class="six wide column">
-            <a href="#" class="ui big yellow button">Pay Dues</a>
+            <h2>News & Posts</h2>
+            {% include post.list.html limit=4 %}
+        </div>
+        <div class="five wide column">
+            {% include button.payDues.html %}
             <div class="ui divider"></div>
-            put calendar stuff here
+            {% include instafeed.html %}
+            <a href="{{ site.data.social.service[0].url }}" target="_blank">
+                <i class="instagram icon"></i> Follow us on Instagram
+            </a>
         </div>
     </div>
     <div class="ui one column center aligned grid">
         <div class="column">
-            <div id="instafeed"></div>
-            <span>Follow us on <a href="{{ site.data.social.service[0].url }}" target="_blank">Instagram</a></span>
         </div>
     </div>
 </div>

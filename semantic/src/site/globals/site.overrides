@@ -28,7 +28,26 @@
     color: @colorGray;
 }
 
-body.page.initiatives main.content {
+body.page.home .header.banner {
+    height: 350px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0,0,0,.35) inset;
+    
+    img {
+        z-index: -1
+    }
+}
+
+body.page.home main.content > .ui.container {
+    margin-top: 3rem;
+}
+
+body.page.home main.content .ui.alert.message {
+    margin-top: -6rem;
+}
+
+body.page.initiatives main.content,
+body.page.calendar main.content {
     margin-top: 1rem;
     background-color: @colorGrayLight;
 }
@@ -36,4 +55,13 @@ body.page.initiatives main.content {
 body.page.new-initiative main.content {
     padding-bottom: 0;
     background-color: rgb(225, 242, 193); // hack: match google form
+}
+
+body.page.businesses main.content {
+    margin-top: 3rem;
+    background: url(/img/map.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

@@ -1,0 +1,7 @@
+# Alert type affects the alert color. Options include: "positive","negative","info"
+
+- title: "New website"
+  text: >
+    We've updated the website to better communicate with neighbors. Pay dues online,
+    browse local businesses, view the public calendar, and track initiative status.
+  type: "positive"

@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<div class="ui container three stackable doubling business cards">
+    {% for business in site.data.businesses %}
+    {% unless business.hidden %}
+    <div class="card">
+        <div class="title content">
+            {% if business.since %}
+            <div class="right floated meta">
+                {{ business.since }}
+            </div>
+            {% endif %}
+            <div class="header">
+                {{ business.name }}
+            </div>
+        </div>
+        <div class="image">
+            {% if business.img and business.img != '' %}
+            <img src="{{ site.baseurl }}/img/businesses/{{ business.img }}" title="{{ business.name }}">
+            {% else %}
+            <img src="//placehold.it/250x250" alt="No image for {{ business.name }}">
+            {% endif %}
+        </div>
+        <div class="content">
+            {% if business.tags and business.tags != '' %}
+            <div class="meta">
+                {% assign tags = business.tags | split: ',' | join: ', ' %}
+                {{ tags }}
+            </div>
+            {% endif %}
+            {% if business.description and business.description != '' %}
+            <div class="description">
+                {{ business.description }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="extra content">
+            {% if business.address and business.address != '' %}
+            <a href="//maps.google.com/maps?q={{business.address}}"
+               target="_blank">
+                <i class="circular marker icon"></i>
+            </a>
+            {% endif %}
+            {% if business.url and business.url != '' %}
+            <a href="//{{ business.url }}" target="_blank">
+                <i class="circular globe icon"></i>
+            </a>
+            {% endif %}
+            {% if business.owned_by and business.owned_by != '' %}
+            <br/>
+            <br/>
+            <span>Owned by:<br/> {{ business.owned_by }}</span>
+            {% endif %}
+        </div>
+    </div>
+    {% endunless %}
+    {% endfor %}
+</div>
+
+<div class="ui one column center aligned container grid">
+    <div class="column">
+        {% include button.updateSite.html color='orange' text='Add Business' size='massive' %}
+    </div>
+</div>

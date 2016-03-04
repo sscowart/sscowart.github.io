@@ -10,15 +10,7 @@
                 {% endif %}
             </div>
             <div class="right aligned ten wide column">
-                {% if site.data.social %}
-                <div class="ui big horizontal list">
-                    {% for social in site.data.social %}
-                    <a href="{{social.url}}" class="item">
-                        <i class="circular {{social.service}} icon"></i>
-                    </a>
-                    {% endfor %}
-                </div>
-                {%endif %}
+                {% include social.icons.list.html %}
                 <p class="rss-subscribe">Subscribe <a href="{{ '/feed.xml' | prepend: site.baseurl }}">via RSS</a></p>
             </div>
         </div>

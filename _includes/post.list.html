@@ -1,0 +1,14 @@
+{% if include.limit %}
+{% assign limit = include.limit %}
+{% else %}
+{% assign limit = 10 %}
+{% endif %}
+
+{% for post in site.posts limit:limit %}
+<a href="{{ post.url | prepend: site.baseurl }}">
+    <h5>{{ post.title }}</h5>
+</a>
+<span>{{ post.date | date: "%b %-d, %Y" }}</span>
+<p>{{ post.excerpt }}</p>
+<div class="ui divider"></div>
+{% endfor %}

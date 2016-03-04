@@ -461,3 +461,22 @@
         Site Overrides
 *******************************/
 
+.ui.alert.message {
+  color: #fff;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+}
+.ui.alert.message .header {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.ui.alert.message.positive,
+.ui.alert.message.success {
+  background-color: rgba(30, 188, 48, 0.95);
+}
+.ui.alert.message.negative,
+.ui.alert.message.danger {
+  background-color: rgba(219, 40, 40, 0.95);
+}
+.ui.alert.message.info {
+  background-color: rgba(242, 113, 28, 0.95);
+}

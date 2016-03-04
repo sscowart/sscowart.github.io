@@ -1,3 +1,10 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+.business.cards {
+
+    .title.content {
+        flex-grow: inherit;
+    }
+}

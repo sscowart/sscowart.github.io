@@ -1,8 +1,8 @@
-- title: About
-  url: /about/
-
 - title: Calendar
   url: /calendar/
 
 - title: Initiatives
   url: /initiatives/
+
+- title: Businesses
+  url: /businesses/

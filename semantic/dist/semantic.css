@@ -703,7 +703,26 @@ input::selection {
   color: #bbb;
 }
 
-body.page.initiatives main.content {
+body.page.home .header.banner {
+  height: 350px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.35) inset;
+}
+
+body.page.home .header.banner img {
+  z-index: -1;
+}
+
+body.page.home main.content > .ui.container {
+  margin-top: 3rem;
+}
+
+body.page.home main.content .ui.alert.message {
+  margin-top: -6rem;
+}
+
+body.page.initiatives main.content,
+body.page.calendar main.content {
   margin-top: 1rem;
   background-color: #ddd;
 }
@@ -711,6 +730,12 @@ body.page.initiatives main.content {
 body.page.new-initiative main.content {
   padding-bottom: 0;
   background-color: #e1f2c1;
+}
+
+body.page.businesses main.content {
+  margin-top: 3rem;
+  background: url("/img/map.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 /*!
  * # Semantic UI 2.1.8 - Button
@@ -22301,6 +22326,30 @@ Floated Menu / Item
 /*******************************
         Site Overrides
 *******************************/
+
+.ui.alert.message {
+  color: #fff;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+}
+
+.ui.alert.message .header {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.ui.alert.message.positive,
+.ui.alert.message.success {
+  background-color: rgba(30, 188, 48, 0.95);
+}
+
+.ui.alert.message.negative,
+.ui.alert.message.danger {
+  background-color: rgba(219, 40, 40, 0.95);
+}
+
+.ui.alert.message.info {
+  background-color: rgba(242, 113, 28, 0.95);
+}
 /*!
  * # Semantic UI 2.1.8 - Table
  * http://github.com/semantic-org/semantic-ui/
@@ -24904,6 +24953,13 @@ a.ui.card:hover,
 /*******************************
     User Variable Overrides
 *******************************/
+
+.business.cards .title.content {
+  -webkit-box-flex: inherit;
+  -webkit-flex-grow: inherit;
+  -ms-flex-positive: inherit;
+  flex-grow: inherit;
+}
 /*!
  * # Semantic UI 2.1.8 - Comment
  * http://github.com/semantic-org/semantic-ui/

@@ -4,4 +4,4 @@ title: Initiatives
 permalink: /initiatives/
 ---
 
-Some lead text about initiatives
+View the status, history, and process for neighborhood initiatives.

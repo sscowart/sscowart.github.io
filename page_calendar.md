@@ -4,5 +4,4 @@ title: Calendar
 permalink: /calendar/
 ---
 
-## Calendar
-
+Here's a list of what's happening around Southside and Chattanooga.

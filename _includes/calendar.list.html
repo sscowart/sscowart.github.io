@@ -1,0 +1,113 @@
+<div id="calendarList">
+    <div class="ui active inverted dimmer" style="padding:3rem 0;">
+        <div class="ui loader"></div>
+    </div>
+</div>
+<script>
+
+    $(function () {
+
+        var today = new Date();
+        var iso = today.toJSON();
+
+        var myKey = "{{ site.api.google.browser_key }}"; // typically like Gtg-rtZdsreUr_fLfhgPfgff
+        var calendarId = "{{ site.api.google.calendar }}"; // will look somewhat like 3ruy234vodf6hf4sdf5sd84f@group.calendar.google.com
+
+        var calendarParams = {
+            key: myKey,
+            timeMin: iso,
+            maxResults: "{{ include.limit | default:10 }}",
+            singleEvents: true,
+            orderBy: "startTime"
+        };
+
+        function serialize(obj) {
+            var foo = '';
+
+            $.each(obj, function (key, prop) {
+                if (key == 'key') {
+                    foo += key + '=' + prop;
+                    return;
+                }
+
+                foo += '&' + key + '=' + prop;
+            });
+
+            return foo;
+        }
+
+        var params = serialize(calendarParams);
+
+        function formatTimeHHMMA(d) {
+            function z(n) {
+                return (n < 10 ? '0' : '') + n
+            }
+
+            var h = d.getHours();
+            return (h % 12 || 12) + ':' + z(d.getMinutes()) + ' ' + (h < 12 ? 'AM' : 'PM');
+        }
+
+        function setEventDate(item) {
+
+            var startDateTime = new Date(item.start.dateTime),
+                    endDateTime = new Date(item.end.dateTime),
+                    startDate = startDateTime.toDateString(),
+                    endDate = endDateTime.toDateString(),
+                    startTime = formatTimeHHMMA(startDateTime),
+                    endTime = formatTimeHHMMA(endDateTime);
+
+            var date = {};
+
+            date.sameDay = (startDate == endDate);
+
+            if (date.sameDay) {
+                date.start = startDate;
+                date.startTime = startTime;
+                date.endTime = endTime;
+                return date;
+            }
+
+            date.start = startDate + ', at ' + startTime;
+            date.end = endDate + ', at ' + endTime;
+            return date;
+        }
+
+        function buildList(response) {
+
+            var events = [];
+
+            $.each(response.items, function (index, item) {
+                var event = {};
+
+                event.date = setEventDate(item);
+
+                event.title = item.summary || '';
+                event.description = item.description || '';
+                event.location = item.location || '';
+                events.push(event);
+            });
+
+            var source = $("#tmplCalendarEvents").html();
+            var template = Handlebars.compile(source);
+
+            $('#calendarList').append(template({events: events}));
+            $('#calendarList').find('.ui.active.dimmer').removeClass('active');
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events?' + params),
+            dataType: 'json',
+            success: function (response) {
+                buildList(response);
+//                console.log('success', response);
+            },
+            error: function (response) {
+                console.log('error', response);
+                //tell that an error has occurred
+            }
+        });
+
+    });
+
+</script>

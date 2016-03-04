@@ -953,3 +953,9 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 
+.business.cards .title.content {
+  -webkit-box-flex: inherit;
+  -webkit-flex-grow: inherit;
+      -ms-flex-positive: inherit;
+          flex-grow: inherit;
+}

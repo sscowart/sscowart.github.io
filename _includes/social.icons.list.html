@@ -1,0 +1,9 @@
+{% if site.data.social %}
+<div class="ui big horizontal list">
+    {% for social in site.data.social %}
+    <a href="{{social.url}}" class="item">
+        <i class="circular {{social.service}} icon"></i>
+    </a>
+    {% endfor %}
+</div>
+{% endif %}

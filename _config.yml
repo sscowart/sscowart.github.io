@@ -7,13 +7,21 @@
 
 # Site settings
 title: SCPNA
-email: sscowart@gmail.com
+
+email: hello@sscowart.com
+
 description: > # this means to ignore newlines
   Information, connection, and resources for the Southside Cowart Place
   Neighborhood Association in beautiful Chattanooga, TN.
+
 url: "http://sscowart.com" # the base hostname & protocol for your site
-      
-service: 
+
+payments:
+  link: '#'
+
+
+# Site api settings
+api:
   instagram:
     user_id: '3005385170'
     client_id: '62da9c3f0c244fcb8530f5c3b8837a37'
@@ -21,6 +29,11 @@ service:
   google:
     browser_key: 'AIzaSyCn2E1OrXRdTDXToluT89RwF_eh3QEMhR4'
     calendar: '7jj7l7eujqefdnq7gt2cgmbei0@group.calendar.google.com'
+
+
+forms:
+  update_site: '//goo.gl/forms/RTbxOe2JHa'
+  create_initiative: '//goo.gl/forms/do1jmGCZEB'
 
 # Standard Config Keys
 
@@ -32,6 +45,7 @@ layouts_dir:  ./_layouts
 data_dir:     ./_data
 includes_dir: ./_includes
 collections:  null
+
 
 # Default front matter
 
