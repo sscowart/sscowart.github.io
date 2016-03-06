@@ -1,0 +1,15 @@
+{% capture menu %}{{ include.menu | default:'main' }}{% endcapture %}
+
+{% for link in site.data.navigation %}
+{% if link.appears_in contains menu %}
+{% assign is_active = false %}
+{% if page.url != '/' %}
+{% if page.url contains link.url or link.children contains page.url %}
+{% assign is_active = true %}
+{% endif %}
+{% endif %}
+<a href="{{ link.url | prepend: site.baseurl }}" class="item {% if is_active %} active{% endif %}">
+    {{ link.title }}
+</a>
+{% endif %}
+{% endfor %}

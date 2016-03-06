@@ -1,0 +1,9 @@
+{% assign limit = include.limit | 10 %}
+{% assign horizontal = include.horizontal | false %}
+
+{% for post in site.posts %}
+{% include post.grid.item.html %}
+{% unless forloop.last or horizontal %}
+<div class="ui divider"></div>
+{% endunless %}
+{% endfor %}

@@ -1,9 +1,9 @@
 <div id="sidebar" class="ui sidebar vertical menu">
-    <a href="/" class="logo item">
+    <a href="{{ site.baseurl }}/" class="logo item">
         <div class="ui image">
-            <img src="{{ site.baseurl }}/img/logo.png" alt="">
+            <img src="{{ site.baseurl }}/assets/img/logo.png" alt="">
         </div>
         <span>{{ site.title }}</span>
     </a>
-    {% include nav-links.html %}
+    {% include nav.links.html menu='sidebar' %}
 </div>

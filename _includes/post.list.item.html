@@ -1,0 +1,12 @@
+<a href="{{ site.baseurl }}{{ post.url }}">
+    {% include post.feature.image.html %}
+    <h3>{{ post.title }}</h3>
+</a>
+<span class="meta text">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} by {{ post.author }}{% endif %}</span>
+
+{% if post.excerpt %}
+<p>{{ post.excerpt | markdownify | strip_html | truncatewords:50 }}</p>
+{% else %}
+<p>{{ post.content | strip_html | truncatewords:50 }}</p>
+{% endif %}
+<a href="{{site.baseurl}}{{ post.url }}">Read more</a>

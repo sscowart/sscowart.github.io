@@ -1,27 +1,33 @@
-<script id="tmplCalendarEvents" type="text/template">
+<script id="calendarEventTmpl" type="text/template">
     {% raw %}
-    <div class="ui very relaxed divided list">
+    <div class="ui very relaxed divided calendar list">
         {{#events}}
         <div class="item">
-            <h2>{{title}}</h2>
-            <div class="content">
-                {{#if date.sameDay}}
-                <div class="header">
-                    {{date.start}} ({{date.startTime}} to {{date.endTime}})
-                </div>
+            <h3>
+                {{#if link }}
+                <a href={{link}} title="Click to learn more" target="_blank">{{title}}</a>
                 {{else}}
+                {{title}}
+                {{/if}}
+            </h3>
+            <div class="content">
                 <div class="header">
+                    {{#if date.sameDay}}
+                    {{date.start}} ({{date.startTime}} to {{date.endTime}})
+                    {{else}}
                     {{date.start}} to <br/>
                     {{date.end}}
+                    {{/if}}
                 </div>
-                {{/if}}
                 {{#if location}}
                 <div class="meta">
                     <a href="//maps.google.com/maps?q={{location}}"
                        target="_blank">{{location}}</a>
                 </div>
                 {{/if}}
-                <div class="description">{{{description}}}</div>
+                <div class="description">
+                    {{{description}}}
+                </div>
             </div>
         </div>
         {{/events}}

@@ -42,14 +42,14 @@
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin: -0.14285em 0em 0rem 0em;
 }
 
 /* Default font size */
 .ui.message .header:not(.ui) {
-  font-size: 1.14285714em;
+  font-size: 1.125em;
 }
 
 /* Paragraph */
@@ -435,19 +435,19 @@
 ---------------*/
 
 .ui.small.message {
-  font-size: 0.92857143em;
+  font-size: 0.9375em;
 }
 .ui.message {
   font-size: 1em;
 }
 .ui.large.message {
-  font-size: 1.14285714em;
+  font-size: 1.125em;
 }
 .ui.huge.message {
-  font-size: 1.42857143em;
+  font-size: 1.4375em;
 }
 .ui.massive.message {
-  font-size: 1.71428571em;
+  font-size: 1.6875em;
 }
 
 

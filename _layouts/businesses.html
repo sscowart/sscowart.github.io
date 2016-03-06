@@ -18,7 +18,7 @@ layout: default
         </div>
         <div class="image">
             {% if business.img and business.img != '' %}
-            <img src="{{ site.baseurl }}/img/businesses/{{ business.img }}" title="{{ business.name }}">
+            <img src="{{ site.baseurl }}/assets/img/businesses/{{ business.img }}" title="{{ business.name }}">
             {% else %}
             <img src="//placehold.it/250x250" alt="No image for {{ business.name }}">
             {% endif %}
@@ -44,7 +44,7 @@ layout: default
             </a>
             {% endif %}
             {% if business.url and business.url != '' %}
-            <a href="//{{ business.url }}" target="_blank">
+            <a href="//{{ business.url | replace: 'http://','' | replace: 'https://','' }}" target="_blank">
                 <i class="circular globe icon"></i>
             </a>
             {% endif %}

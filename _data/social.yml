@@ -2,6 +2,7 @@
   url: "https://www.facebook.com/SouthSideChattanooga/"
   
 - service: instagram
+  username: sscowart
   url: "https://www.instagram.com/sscowart/"
 
 - service: mail

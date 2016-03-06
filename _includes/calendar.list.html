@@ -1,5 +1,5 @@
-<div id="calendarList">
-    <div class="ui active inverted dimmer" style="padding:3rem 0;">
+<div id="calendarList" style="position:relative;min-height:6rem;">
+    <div class="ui active inverted dimmer">
         <div class="ui loader"></div>
     </div>
 </div>
@@ -72,9 +72,20 @@
             return date;
         }
 
+        function getLink(string) {
+            var link = string.split('href=')[1];
+            if (link) {
+                link = link.replace(/\"/g, '').replace(/\'/g, '');
+                return link.split(' ')[0].split('>')[0];
+            }
+            return false;
+        }
+
         function buildList(response) {
 
             var events = [];
+            var tmpl = '#calendarEventTmpl';
+            var source = $(tmpl).html();
 
             $.each(response.items, function (index, item) {
                 var event = {};
@@ -83,11 +94,11 @@
 
                 event.title = item.summary || '';
                 event.description = item.description || '';
+                event.link = getLink(item.description);
                 event.location = item.location || '';
                 events.push(event);
             });
 
-            var source = $("#tmplCalendarEvents").html();
             var template = Handlebars.compile(source);
 
             $('#calendarList').append(template({events: events}));

@@ -1,19 +1,30 @@
 <footer class="site footer">
 
-    <div class="ui container">
-
-        <div class="ui two column stackable grid">
+    <div class="main">
+        <div class="ui two column stackable grid container">
             <div class="six wide column">
-                <h2 class="footer-heading">{{ site.title }}</h2>
+                <h3 class="footer-heading">{{ site.title }}</h3>
                 {% if site.description %}
                 <p>{{ site.description }}</p>
                 {% endif %}
             </div>
             <div class="right aligned ten wide column">
                 {% include social.icons.list.html %}
-                <p class="rss-subscribe">Subscribe <a href="{{ '/feed.xml' | prepend: site.baseurl }}">via RSS</a></p>
+                <p class="rss-subscribe">Subscribe <a href="{{ '/feed.xml' | prepend: site.baseurl }}">via RSS</a>
+                </p>
             </div>
         </div>
     </div>
-
+    <div class="micro">
+        <div class="ui two column stackable grid container">
+            <div class="column">
+                &copy; {{ site.time | date:'%Y' }} Southside Cowart Place Neighborhood Assoc.
+            </div>
+            <div class="right aligned column">
+                <div class="ui celled horizontal list">
+                    {% include nav.links.html menu='footer' %}
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
