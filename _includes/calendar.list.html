@@ -1,124 +1,44 @@
+{% assign primary = include.primary | false %}
+
 <div id="calendarList" style="position:relative;min-height:6rem;">
     <div class="ui active inverted dimmer">
         <div class="ui loader"></div>
     </div>
 </div>
-<script>
 
+{% if primary %}
+<script type="text/javascript">
     $(function () {
-
-        var today = new Date();
-        var iso = today.toJSON();
-
-        var myKey = "{{ site.api.google.browser_key }}"; // typically like Gtg-rtZdsreUr_fLfhgPfgff
-        var calendarId = "{{ site.api.google.calendar }}"; // will look somewhat like 3ruy234vodf6hf4sdf5sd84f@group.calendar.google.com
-
-        var calendarParams = {
-            key: myKey,
-            timeMin: iso,
-            maxResults: "{{ include.limit | default:10 }}",
-            singleEvents: true,
-            orderBy: "startTime"
-        };
-
-        function serialize(obj) {
-            var foo = '';
-
-            $.each(obj, function (key, prop) {
-                if (key == 'key') {
-                    foo += key + '=' + prop;
-                    return;
-                }
-
-                foo += '&' + key + '=' + prop;
-            });
-
-            return foo;
-        }
-
-        var params = serialize(calendarParams);
-
-        function formatTimeHHMMA(d) {
-            function z(n) {
-                return (n < 10 ? '0' : '') + n
-            }
-
-            var h = d.getHours();
-            return (h % 12 || 12) + ':' + z(d.getMinutes()) + ' ' + (h < 12 ? 'AM' : 'PM');
-        }
-
-        function setEventDate(item) {
-
-            var startDateTime = new Date(item.start.dateTime),
-                    endDateTime = new Date(item.end.dateTime),
-                    startDate = startDateTime.toDateString(),
-                    endDate = endDateTime.toDateString(),
-                    startTime = formatTimeHHMMA(startDateTime),
-                    endTime = formatTimeHHMMA(endDateTime);
-
-            var date = {};
-
-            date.sameDay = (startDate == endDate);
-
-            if (date.sameDay) {
-                date.start = startDate;
-                date.startTime = startTime;
-                date.endTime = endTime;
-                return date;
-            }
-
-            date.start = startDate + ', at ' + startTime;
-            date.end = endDate + ', at ' + endTime;
-            return date;
-        }
-
-        function getLink(string) {
-            var link = string.split('href=')[1];
-            if (link) {
-                link = link.replace(/\"/g, '').replace(/\'/g, '');
-                return link.split(' ')[0].split('>')[0];
-            }
-            return false;
-        }
-
-        function buildList(response) {
-
-            var events = [];
-            var tmpl = '#calendarEventTmpl';
-            var source = $(tmpl).html();
-
-            $.each(response.items, function (index, item) {
-                var event = {};
-
-                event.date = setEventDate(item);
-
-                event.title = item.summary || '';
-                event.description = item.description || '';
-                event.link = getLink(item.description);
-                event.location = item.location || '';
-                events.push(event);
-            });
-
-            var template = Handlebars.compile(source);
-
-            $('#calendarList').append(template({events: events}));
-            $('#calendarList').find('.ui.active.dimmer').removeClass('active');
-        }
-
-        $.ajax({
-            type: 'GET',
-            url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events?' + params),
-            dataType: 'json',
-            success: function (response) {
-                buildList(response);
-//                console.log('success', response);
-            },
-            error: function (response) {
-                console.log('error', response);
-                //tell that an error has occurred
-            }
+        var calendar = new Calendar("{{ site.api.google.calendars.primary }}", {
+            class: "primary",
+            maxResults: "{{ include.limit | default: 10 }}"
         });
 
+        window.setTimeout(function () {
+            calendar.compileList();
+        }, 1000);
     });
-
 </script>
+{% else %}
+<script type="text/javascript">
+    $(function () {
+        var calendars = new Calendars([{
+            id: "{{ site.api.google.calendars.primary }}", options: {
+                class: "primary"
+            }
+        }, {
+            id: "{{ site.api.google.calendars.secondary }}",
+            options: {
+                class: "secondary"
+            }
+        }], {
+            maxResults: "{{ include.limit | default: 10 }}"
+        });
+
+        window.setTimeout(function () {
+            calendars.setEvents();
+            calendars.compileList();
+        }, 1000);
+    });
+</script>
+{% endif %}

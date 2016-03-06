@@ -1,0 +1,18 @@
+council:
+  agency_url: "//www.chattanooga.gov/city-council"
+  district: "7"
+  rep_name: "Chris Anderson"
+  rep_email: "canderson@chattanooga.gov"
+  rep_img_url: "//www.chattanooga.gov/images/citymedia/police/Council/Anderson_web.jpg"
+  rep_url: "//www.chattanooga.gov/city-council/council-members/chris-anderson-district-7" 
+  elected_since: April 15, 2013
+  elected_until: March 7, 2017
+
+police: 
+  agency_url: "//www.chattanooga.gov/police-department"
+  district: Adam South
+  rep_name: "Lt. Ponda Foster"
+  rep_email: "foster_ponda@chattanooga.gov"
+  rep_img_url: "//www.chattanooga.gov/images/citymedia/police/Council/Anderson_web.jpg"
+  rep_url: "//www.chattanooga.gov/police-department/neighborhood-policing"
+  non_emergency_number: "(423) 698-2525"
