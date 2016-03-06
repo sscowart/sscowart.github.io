@@ -427,3 +427,6 @@ th {
          Site Overrides
 *******************************/
 
+.pointer {
+  cursor: pointer;
+}

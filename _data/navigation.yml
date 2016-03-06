@@ -1,8 +1,27 @@
-- title: Calendar
+# appears_in allowed valued: 'main' or 'sidebar' or 'footer'
+# to appear in multiple places, use string comma separated (i.e. 'main,footer')
+
+- title: Events
   url: /calendar/
+  appears_in: 'main,sidebar,footer'
 
 - title: Initiatives
   url: /initiatives/
+  appears_in: 'main,sidebar,footer'
 
-- title: Businesses
+- title: Work
   url: /businesses/
+  appears_in: 'main,sidebar,footer'
+
+- title: News
+  url: /news/
+  appears_in: 'main,sidebar,footer'
+  children: '/meetings/'
+
+- title: About
+  url: /about/
+  appears_in: 'sidebar,footer'
+
+- title: Contact
+  url: /contact/
+  appears_in: 'sidebar,footer'

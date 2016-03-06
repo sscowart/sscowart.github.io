@@ -1,1 +1,36 @@
-<div id="instafeed"></div>
+<div style="position:relative;min-height: 300px;">
+    <div class="ui active inverted dimmer">
+        <div class="ui indeterminate text loader">Fetching from <i class="big instagram icon"></i></div>
+    </div>
+    <div id="instafeed" class="ui small images">
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        if (document.getElementById('instafeed')) {
+            // Settings for Instagram.com sscowart
+            var userId = "{{ site.api.instagram.user_id }}",
+                    clientId = "{{ site.api.instagram.client_id }}",
+                    accessToken = "{{ site.api.instagram.access_token }}",
+                    limit = "{{ include.limit | default:6 }}",
+                    template = '<a href="{% raw %}{{link}}{% endraw %}" class="ui image"><img src="{% raw %}{{image}}{% endraw %}" /></a>';
+
+            var feed = new Instafeed({
+                get: 'user',
+                userId: userId,
+                accessToken: accessToken,
+                limit: limit,
+                template: template,
+                after: function () {
+                    $('#' + this.options.target).prev().removeClass('active');
+                }
+            });
+            feed.run();
+        }
+
+    });
+
+</script>

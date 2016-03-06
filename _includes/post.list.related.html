@@ -1,0 +1,48 @@
+{% assign limit = include.limit | default:4 %}
+{% assign horizontal = include.horizontal | default:false %}
+
+{% assign category = page.categories.first %}
+{% assign related_posts_count = 0 %}
+{% capture related_posts_titles %},{{ page.title | slugify }}{% endcapture %}
+
+{% comment %}
+We'll loop through all of the related category posts until we
+reach limit, excluding current page.
+{% endcomment %}
+
+{% for post in site.categories[category] %}
+{% if related_posts_count == limit %}
+{% break %}
+{% endif %}
+{% capture title_to_test %},{{ post.title | slugify }}{% endcapture %}
+{% if related_posts_titles contains title_to_test %}
+{% continue %}
+{% endif %}
+<div class="left aligned column">
+    {% include post.list.item.html horizontal=horizontal %}
+</div>
+{% assign related_posts_count = related_posts_count | plus: 1 %}
+{% capture related_posts_titles %}{{ related_posts_titles }},{{ post.title | slugify }}{% endcapture %}
+{% endfor %}
+
+{% comment %}
+If haven't reached limit, we'll loop through all site posts until we
+reach limit, excluding current page and category posts.
+{% endcomment %}
+
+{% if related_posts_count < limit %}
+{% for post in site.posts %}
+{% if related_posts_count == limit %}
+{% break %}
+{% endif %}
+{% capture title_to_test %},{{ post.title | slugify }}{% endcapture %}
+{% if related_posts_titles contains title_to_test %}
+{% continue %}
+{% endif %}
+<div class="left aligned column">
+    {% include post.list.item.html horizontal=horizontal %}
+</div>
+{% assign related_posts_count = related_posts_count | plus: 1 %}
+{% capture related_posts_titles %}{{ related_posts_titles }},{{ post.title | slugify }}{% endcapture %}
+{% endfor %}
+{% endif %}

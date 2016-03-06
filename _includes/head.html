@@ -7,9 +7,11 @@
     <meta name="description"
           content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-    <link rel="stylesheet" href="{{ '/semantic/dist/semantic.min.css' | prepend: site.baseurl }}">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,800|Montserrat:700,400'
+          type='text/css'>
+    <link rel="stylesheet" href="{{ '/semantic/dist/semantic.min.css' | prepend: site.baseurl }}" type='text/css'>
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}"
           href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>

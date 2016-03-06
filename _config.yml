@@ -5,22 +5,19 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
-# Site settings
+# Site custom variables
+# ========================================
+
 title: SCPNA
-
 email: hello@sscowart.com
-
-description: > # this means to ignore newlines
-  Information, connection, and resources for the Southside Cowart Place
-  Neighborhood Association in beautiful Chattanooga, TN.
-
-url: "http://sscowart.com" # the base hostname & protocol for your site
+description: Information, connection, and resources for the Southside Cowart Place Neighborhood Association in beautiful Chattanooga, TN.
 
 payments:
   link: '#'
 
+# Site API settings
+# ========================================
 
-# Site api settings
 api:
   instagram:
     user_id: '3005385170'
@@ -30,30 +27,49 @@ api:
     browser_key: 'AIzaSyCn2E1OrXRdTDXToluT89RwF_eh3QEMhR4'
     calendar: '7jj7l7eujqefdnq7gt2cgmbei0@group.calendar.google.com'
 
-
 forms:
   update_site: '//goo.gl/forms/RTbxOe2JHa'
   create_initiative: '//goo.gl/forms/do1jmGCZEB'
 
+# Default front matter
+# ========================================
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: posts # previously `post` in Jekyll 2.2.
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: "default"
+
+
 # Standard Config Keys
+# ========================================
 
 # Where things are
-source:       .
-destination:  ./_site
-plugins_dir:  ./_plugins
-layouts_dir:  ./_layouts
-data_dir:     ./_data
+source: ./
+destination: ./_site
+plugins_dir: ./_plugins
+layouts_dir: ./_layouts
+data_dir: ./_data
 includes_dir: ./_includes
-collections:  null
-
-
-# Default front matter
+collections: []
 
 
 # Handling Reading
-safe:         false
+safe: true
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
 include:
   - ".htaccess"
+
 exclude:
   - "node_modules"
   - "semantic/src"
@@ -63,39 +79,40 @@ exclude:
   - "Gemfile"
   - "Gemfile.lock"
   - "README.md"
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+  - "semantic.json"
+  
+keep_files: [".git", ".svn"]
 
 # Filtering Content
 show_drafts: null
 limit_posts: 0
-future:      false
+future: false
 unpublished: false
 
 # Plugins
 whitelist: []
-gems:      []
+gems: [jekyll-paginate]
 
 # Conversion
-markdown:    kramdown
+markdown: kramdown
 highlighter: rouge
-lsi:         false
-excerpt_separator: "\n\n"
+lsi: false
+excerpt_separator: "<!--excerpt-->"
 incremental: false
 
 # Serving
-detach:  false
-port:    4000
-host:    127.0.0.1
-baseurl: "" # does not include hostname
+detach: false
+port: 4000
+host: 127.0.0.1
+url: http://127.0.0.1:4000 # the base hostname & protocol for your site
+baseurl: '' # does not include hostname
 
 # Outputting
-permalink:     date
+permalink: /:categories/:title
 paginate_path: /page:num
-timezone:      America/New_York
-
-quiet:    false
+timezone: America/New_York
+#
+quiet: false
 defaults: []
 
 # Markdown Processors
@@ -106,17 +123,17 @@ redcarpet:
   extensions: []
 
 kramdown:
-  auto_ids:       true
-  footnote_nr:    1
-  entity_output:  as_char
-  toc_levels:     1..6
-  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
   coderay:
-    coderay_wrap:              div
-    coderay_line_numbers:      inline
+    coderay_wrap: div
+    coderay_line_numbers: inline
     coderay_line_number_start: 1
-    coderay_tab_width:         4
-    coderay_bold_every:        10
-    coderay_css:               style
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: style

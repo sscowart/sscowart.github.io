@@ -3,32 +3,41 @@ layout: default
 title: Home
 ---
 <div class="header banner">
-    <img class="ui fluid image" src="/img/banner_2.jpg" alt="">
+    <img class="ui fluid image" src="/assets/img/banner_2.jpg" alt="">
 </div>
-<div class="ui container">
-    <div class="ui three column stackable internally celled grid">
-        <div class="five wide column">
-            {% for alert in site.data.alert %}
-            {% include alert.message.html %}
-            {% endfor %}
-            <h2>Calendar</h2>
-            {% include calendar.list.html limit=3 %}
-        </div>
-        <div class="six wide column">
-            <h2>News & Posts</h2>
-            {% include post.list.html limit=4 %}
-        </div>
-        <div class="five wide column">
-            {% include button.payDues.html %}
-            <div class="ui divider"></div>
-            {% include instafeed.html %}
-            <a href="{{ site.data.social.service[0].url }}" target="_blank">
-                <i class="instagram icon"></i> Follow us on Instagram
-            </a>
-        </div>
+
+<div class="ui three column stackable internally celled grid container">
+    <div class="five wide computer eight wide tablet column">
+        {% for alert in site.data.alert %}
+        {% include alert.message.html %}
+        {% endfor %}
+        <h2>
+            <a href="/calendar/" title="View Calendar">Calendar</a>
+        </h2>
+        {% include calendar.list.html limit=3 %}
     </div>
-    <div class="ui one column center aligned grid">
-        <div class="column">
-        </div>
+    <div class="six wide computer eight wide tablet column">
+        <h2>
+            <a href="/news/" title="View News">News & Posts</a>
+        </h2>
+        {% include post.list.html limit=4 %}
+    </div>
+    <div class="five wide computer sixteen wide tablet column">
+        {% include button.payDues.html %}
+        <div class="ui divider"></div>
+        {% for social in site.data.social %}
+        {% if social.service == 'instagram' %}
+        {% assign instagram = social %}
+        {% endif %}
+        {% endfor %}
+        {% if instagram %}
+        <h3>
+            Follow <a href="{{ instagram.url }}" target="_blank" title="Follow us on Instagram">@{{ instagram.username
+            }}</a> on<br/>
+            <i class="instagram icon"></i>Instagram
+        </h3>
+        {% include instafeed.html %}
+        <div class="meta text">#chattanoogasouthside</div>
+        {% endif %}
     </div>
 </div>

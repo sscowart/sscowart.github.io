@@ -3,6 +3,16 @@
 *******************************/
 
 @colorBrand: #0a4a09;
-@colorGrayLight: #ddd;
+@colorGrayLight: #EFEEEE;
 @colorGray: #bbb;
 @defaultBorderRadius: 0;
+
+@headerFont: 'Montserrat','Helvetica Neue',Arial,Helvetica,sans-serif;
+
+@fontName: 'Open Sans';
+
+@emSize: 16px;
+@fontSize: 16px;
+
+@h1 : 2.5rem;
+@h2 : 2.15rem;

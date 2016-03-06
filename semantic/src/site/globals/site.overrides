@@ -14,21 +14,67 @@
     flex: 1;
 }
 
-.pusher > footer.site.footer {
-
-    border-top: 1px solid rgba(34,36,38,.15);
-    padding: 1rem 0;
+footer.site.footer {
     
-    .icon {
-        color: @colorBrand;
+    @spacing: 1rem;
+    
+    .main {
+
+        border-top: 1px solid rgba(34,36,38,.15);
+        padding: @spacing 0 0;
+        
+        & > .ui.container {
+            margin-bottom: @spacing;
+        }
+    }
+    
+    .micro {
+        padding-bottom: @spacing;
+        background-color: @colorGrayLight;
+    
+        &,
+        .item {
+           font-size: .85rem;
+        }
     }
 }
 
-.text.meta {
-    color: @colorGray;
+#instafeed {
+    width: 100%;
+    text-align: center;
 }
 
-body.page.home .header.banner {
+.text {
+
+    &.meta {
+        color: @colorGray;
+    }
+    
+    &.bordered {
+        border-color: #000;
+        border-style: solid;
+        border-width: 0;
+        line-height: 2rem;
+    
+        &.bottom {
+            border-bottom-width: 1px;
+        }
+        
+        &.top {
+            border-top-width: 1px;
+        }
+        
+        &.meta {
+            border-color: @colorGray;
+        }
+    }
+        
+    &.small {
+        font-size: 90%;
+    }
+}
+
+body.home .header.banner {
     height: 350px;
     overflow: hidden;
     box-shadow: 0 0 12px rgba(0,0,0,.35) inset;
@@ -36,32 +82,60 @@ body.page.home .header.banner {
     img {
         z-index: -1
     }
+    
+    @media only screen and (max-width: @largestMobileScreen){
+        height: 151px;
+    }
+    
+    @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen){
+        height: 250px;
+    }
 }
 
-body.page.home main.content > .ui.container {
+body.home main.content > .ui.container {
     margin-top: 3rem;
 }
 
-body.page.home main.content .ui.alert.message {
+body.home main.content .ui.alert.message {
     margin-top: -6rem;
 }
 
-body.page.initiatives main.content,
-body.page.calendar main.content {
+body.initiatives main.content,
+body.calendar main.content {
     margin-top: 1rem;
     background-color: @colorGrayLight;
 }
 
-body.page.new-initiative main.content {
+body.new-initiative main.content {
     padding-bottom: 0;
     background-color: rgb(225, 242, 193); // hack: match google form
 }
 
-body.page.businesses main.content {
+body.businesses main.content {
     margin-top: 3rem;
-    background: url(/img/map.jpg) no-repeat center center fixed; 
+    background: url(/assets/img/map.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+#blogList {
+    margin-top: 1rem;
+}
+
+article.post {
+
+    margin-top: 5rem;
+    
+    .header {
+
+        h1,h2,h3 {
+            font-family: 'Montserrat', Lato, sans-serif;
+        }
+    
+        .meta.text span:last-child {
+            border-top: 1px solid @colorGrayLight;
+        }
+    }
 }

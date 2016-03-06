@@ -3,7 +3,7 @@
 
 {% include head.html %}
 
-<body class="ssc page {{ page.title | downcase | replace: ' ' , '-' }}">
+<body class="{{ page.body_class }} {{ page.title | slugify }}">
 
 {% include sidebar.html %}
 
@@ -18,8 +18,9 @@
     {% include footer.html %}
 </div>
 
-{% include templates.html %}
-{% include scripts.html %}
-</body>
+{% include calendar.event.tmpl.html %}
 
+{% include scripts.html %}
+
+</body>
 </html>

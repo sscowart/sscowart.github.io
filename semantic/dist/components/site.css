@@ -14,13 +14,13 @@
              Page
 *******************************/
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
+@import url('https://fonts.googleapis.com/css?family=Open Sans:400,700,400italic,700italic&subset=latin');
 html,
 body {
   height: 100%;
 }
 html {
-  font-size: 14px;
+  font-size: 16px;
 }
 body {
   margin: 0px;
@@ -28,8 +28,8 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background: #FFFFFF;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 16px;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
   font-smoothing: antialiased;
@@ -45,7 +45,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.2857em;
   margin: calc(2rem -  0.14285em ) 0em 1rem;
   font-weight: bold;
@@ -53,10 +53,10 @@ h5 {
 }
 h1 {
   min-height: 1rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 h2 {
-  font-size: 1.714rem;
+  font-size: 2.15rem;
 }
 h3 {
   font-size: 1.28rem;
@@ -178,41 +178,95 @@ input::selection {
       -ms-flex: 1;
           flex: 1;
 }
-.pusher > footer.site.footer {
+footer.site.footer .main {
   border-top: 1px solid rgba(34, 36, 38, 0.15);
-  padding: 1rem 0;
+  padding: 1rem 0 0;
 }
-.pusher > footer.site.footer .icon {
-  color: #0a4a09;
+footer.site.footer .main > .ui.container {
+  margin-bottom: 1rem;
+}
+footer.site.footer .micro {
+  padding-bottom: 1rem;
+  background-color: #EFEEEE;
+}
+footer.site.footer .micro,
+footer.site.footer .micro .item {
+  font-size: .85rem;
+}
+#instafeed {
+  width: 100%;
+  text-align: center;
 }
 .text.meta {
   color: #bbb;
 }
-body.page.home .header.banner {
+.text.bordered {
+  border-color: #000;
+  border-style: solid;
+  border-width: 0;
+  line-height: 2rem;
+}
+.text.bordered.bottom {
+  border-bottom-width: 1px;
+}
+.text.bordered.top {
+  border-top-width: 1px;
+}
+.text.bordered.meta {
+  border-color: #bbb;
+}
+.text.small {
+  font-size: 90%;
+}
+body.home .header.banner {
   height: 350px;
   overflow: hidden;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.35) inset;
 }
-body.page.home .header.banner img {
+body.home .header.banner img {
   z-index: -1;
 }
-body.page.home main.content > .ui.container {
+@media only screen and (max-width: 767px) {
+  body.home .header.banner {
+    height: 151px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  body.home .header.banner {
+    height: 250px;
+  }
+}
+body.home main.content > .ui.container {
   margin-top: 3rem;
 }
-body.page.home main.content .ui.alert.message {
+body.home main.content .ui.alert.message {
   margin-top: -6rem;
 }
-body.page.initiatives main.content,
-body.page.calendar main.content {
+body.initiatives main.content,
+body.calendar main.content {
   margin-top: 1rem;
-  background-color: #ddd;
+  background-color: #EFEEEE;
 }
-body.page.new-initiative main.content {
+body.new-initiative main.content {
   padding-bottom: 0;
   background-color: #e1f2c1;
 }
-body.page.businesses main.content {
+body.businesses main.content {
   margin-top: 3rem;
-  background: url(/img/map.jpg) no-repeat center center fixed;
+  background: url(/assets/img/map.jpg) no-repeat center center fixed;
   background-size: cover;
+}
+#blogList {
+  margin-top: 1rem;
+}
+article.post {
+  margin-top: 5rem;
+}
+article.post .header h1,
+article.post .header h2,
+article.post .header h3 {
+  font-family: 'Montserrat', Lato, sans-serif;
+}
+article.post .header .meta.text span:last-child {
+  border-top: 1px solid #EFEEEE;
 }

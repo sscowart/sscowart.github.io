@@ -1,0 +1,16 @@
+{% if post.feature_img %}
+<img class="ui image" src="{{ post.feature_img }}" title="{{ post.title }}"/>
+{% else %}
+{% assign images = post.content | split:"<img " %}
+{% if images.size > 1 %}
+{% for image in images %}
+{% if image contains 'src' %}
+{% assign html = image | split:"/>" | first %}
+<img class="ui image" {{ html }}/>
+{% break %}
+{% endif %}
+{% endfor %}
+{% else %}
+<img class="ui image" src="/assets/img/no_img.jpg" title="Oops. No image found."/>
+{% endif %}
+{% endif %}

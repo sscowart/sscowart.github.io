@@ -38,7 +38,7 @@
 }
 .ui.popup > .header {
   padding: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -345,22 +345,22 @@
 ---------------*/
 
 .ui.mini.popup {
-  font-size: 0.71428571rem;
+  font-size: 0.6875rem;
 }
 .ui.tiny.popup {
-  font-size: 0.85714286rem;
+  font-size: 0.875rem;
 }
 .ui.small.popup {
-  font-size: 0.92857143rem;
+  font-size: 0.9375rem;
 }
 .ui.popup {
   font-size: 1rem;
 }
 .ui.large.popup {
-  font-size: 1.14285714rem;
+  font-size: 1.125rem;
 }
 .ui.huge.popup {
-  font-size: 1.42857143rem;
+  font-size: 1.4375rem;
 }
 
 

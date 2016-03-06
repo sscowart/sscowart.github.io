@@ -1,20 +1,20 @@
 <div id="navDesktop" class="ui top fixed menu">
-    <a href="/" class="item">
-        <img src="{{ site.baseurl }}/img/logo.png">
+    <a href="{{ site.baseurl }}/" class="item">
+        <img src="{{ site.baseurl }}/assets/img/logo.png">
     </a>
-    {% include nav-links.html %}
+    {% include nav.links.html %}
     <div class="right menu">
-        <a href="#" class="item" title="Pay Dues">
+        <a href="{{ site.payments.link }}" class="item" title="Pay Dues">
             <i class="circular dollar icon"></i>
         </a>
-        <a href="{{ site.service.payment_link }}/contact/" class="item" title="Contact us">
+        <a href="{{ site.baseurl }}/contact/" class="item" title="Contact us">
             <i class="mail icon"></i>
         </a>
     </div>
 </div>
 <div id="navMobile" class="ui top fixed menu">
-    <a href="/" class="item">
-        <img src="{{ site.baseurl }}/img/logo.png" alt="">
+    <a href="{{ site.baseurl }}/" class="item">
+        <img src="{{ site.baseurl }}/assets/img/logo.png" alt="">
     </a>
     <div class="right menu">
         <a href="#" class="item">

@@ -1,6 +1,6 @@
 <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-<script type="text/javascript" src="{{ '/scripts/instafeed.min.js' | prepend: site.baseurl }}"></script>
+        src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script type="text/javascript" src="{{ '/assets/scripts/instafeed.min.js' | prepend: site.baseurl }}"></script>
 <script type="text/javascript" src="{{ '/semantic/dist/semantic.min.js' | prepend: site.baseurl }}"></script>
 
 <script type="text/javascript">
@@ -17,28 +17,6 @@
             $iframe.prev().removeClass('active');
         });
     });
-
-</script>
-
-<script type="text/javascript">
-
-    (function () {
-
-        if (document.getElementById('instafeed')) {
-            // Settings for Instagram.com sscowart
-            var userId = "{{ site.api.instagram.user_id }}";
-            var clientId = "{{ site.api.instagram.client_id }}";
-            var accessToken = "{{ site.api.instagram.access_token }}";
-
-            var feed = new Instafeed({
-                get: 'user',
-                userId: userId,
-                accessToken: accessToken
-            });
-            feed.run();
-        }
-
-    })();
 
 </script>
 
