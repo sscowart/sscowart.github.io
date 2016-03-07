@@ -12,7 +12,7 @@ title: News & Posts
                 {% for category in site.categories %}
                 <a href="/{{ category[0] }}/"
                    class="pointer item{% if category[0] == page.category %} active{% endif %}">
-                    <h1>{{ category[0] | capitalize }}</h1>
+                    <h2>{{ category[0] | capitalize }}</h2>
                 </a>
                 {% endfor %}
             </div>
@@ -24,28 +24,3 @@ title: News & Posts
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    //    $(function () {
-    //        var $tabs = $('#allBlogsWrapper .menu .item');
-    //        var $panes = $('#allBlogsWrapper .ui.tab');
-    //        var hash = window.location.hash.split('#')[1];
-    //        var $hashTab = $('#allBlogsWrapper [data-tab="' + hash + '"]');
-    //        var isValid = $hashTab.length > 0;
-    //        var options = {
-    //            onLoad: function (tabPath) {
-    //                window.location.hash = '#' + tabPath;
-    //            }
-    //        };
-    //
-    //        if (!hash || !isValid) {
-    //            $tabs.first().addClass('active');
-    //            $panes.first().addClass('active');
-    //            $tabs.tab(options);
-    //            return;
-    //        }
-    //
-    //        $hashTab.addClass('active');
-    //        $tabs.tab(options);
-    //    });
-</script>

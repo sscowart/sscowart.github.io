@@ -269,6 +269,11 @@ body.about main.content {
 #blogList {
   margin-top: 1rem;
 }
+@media only screen and (max-width: 767px) {
+  #blogList .menu h2 {
+    font-size: 1.5rem;
+  }
+}
 article.post {
   margin-top: 5rem;
 }
