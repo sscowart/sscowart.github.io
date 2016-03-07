@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+<div class="ui one column center aligned container stackable grid">
+    <div class="twelve wide column">
+        <h2>Southside Cowart Place Neighborhood Association</h2>
+        <h4>in beautiful downtown Chattanooga, TN</h4>
+        <div class="ui section divider"></div>
+        <i class="big lead meta text">
+            To unite our efforts, to obtain and maintain a safe, clean, caring neighborhood in which all people can
+            safely live and work in harmony.
+        </i>
+    </div>
+    <div class="twelve wide column">
+        {% include about.header.html text="Our Members" %}
+    </div>
+    <div class="twelve wide justified column">
+        <p>
+            Southside Cowart Place Neighborhood includes the homes and businesses within 12th Street and 20th Street
+            (north
+            to south), and both sides of Broad and Market (west to east). The neighborhood association is comprised of
+            home
+            owners, residents, renters, and businesses. Members pay an annual fee of $25 each calendar year. While this
+            small fee reduces the association's cost of small initiatives, our real capital is human. As an
+            involved,
+            informed, and organized group of neighbors we can continue to make Cowart Place, Southside, and
+            Chattanooga
+            great.
+        </p>
+    </div>
+    <div class="twelve wide column">
+        {% include button.linkMembership.html size='big' color='yellow' %}
+    </div>
+    <div class="twelve wide column">
+        {% include about.header.html text="Our Structure & Board" %}
+    </div>
+    <div class="twelve wide justified column">
+        <p>Established in 2011, in 2016 we reorganized our Board from a traditional (vertical) structure to a area
+            (matrix) structure. Board members, elected for a calendar year, maintain traditional titles such as
+            President, Vice President, Treasurer, and Secretary, however board members are assigned specific
+            Adminstrative and Functional areas of focus representing the various concerns of our neighborhood.</p>
+    </div>
+    <div class="twelve wide column">
+        {% include about.board.table.html %}
+    </div>
+    <div class="twelve wide left aligned column">
+        <div class="ui hidden divider"></div>
+        <div class="ui three doubling stackable centered cards">
+            {% for member in site.data.board %}
+            {% include about.board.member.card.html %}
+            {% endfor %}
+        </div>
+    </div>
+    <div id="aboutCommunity" class="twelve wide column">
+        {% include about.header.html text="Our Community" %}
+        <div class="ui two column stackable grid">
+            <div class="six wide column">
+                <div class="ui secondary vertical pointing menu">
+                    <a class="active item" data-tab="council">
+                        City Council
+                    </a>
+                    <a class="item" data-tab="police">
+                        Police
+                    </a>
+                </div>
+            </div>
+            <div class="ten wide justified column">
+                <div class="ui active tab" data-tab="council">
+                    {% include community.agency.grid.item.html agency=site.data.community.council %}
+                </div>
+                <div class="ui tab" data-tab="police">
+                    {% include community.agency.grid.item.html agency=site.data.community.police %}
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+
+                $('#aboutCommunity .ui.menu .item')
+                        .tab()
+                ;
+            })
+        </script>
+    </div>
+    <div class="twelve wide column">
+        {% include about.header.html text="Our Accomplishments" %}
+        <p>Track our accomplishments progress on the initiatives page.</p>
+        {% include button.linkInitiatives.html size='big' %}
+    </div>
+</div>
+

@@ -718,6 +718,15 @@ footer.site.footer .micro .item {
   text-align: center;
 }
 
+.text.big {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.text.lead {
+  font-family: serif;
+}
+
 .text.meta {
   color: #bbb;
 }
@@ -790,6 +799,10 @@ body.businesses main.content {
   margin-top: 3rem;
   background: url("/assets/img/map.jpg") no-repeat center center fixed;
   background-size: cover;
+}
+
+body.about main.content {
+  margin-top: 2rem;
 }
 
 #blogList {

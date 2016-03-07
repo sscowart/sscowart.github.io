@@ -1,0 +1,18 @@
+<div class="ui card">
+    <div class="image">
+        {% if member.img_url %}
+        <img src="{{ member.img_url }}" alt="{{ member.name }}">
+        {% else %}
+        <img src="{{ site.baseurl }}/assets/img/no_img.jpg" alt="{{ member.name }}">
+        {% endif %}
+    </div>
+    <div class="content">
+        <div class="header">
+            {{ member.name }}
+        </div>
+        <div class="description">
+            {{ member.title }}<br/>
+            {{ member.email }}
+        </div>
+    </div>
+</div>
