@@ -6,12 +6,16 @@
 
     .item {
     
-        border-left: 5px solid transparent;
-        transition: all 1s;
+        border-left: .5rem solid transparent;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
         
-        &:hover {
-            padding-left: 10px;
-            border-left-color: @colorGray;
+        &.primary {
+          border-color: @green;
+        }
+        
+        &.secondary {
+          border-color: @colorGrayLight;
         }
         
         .header,

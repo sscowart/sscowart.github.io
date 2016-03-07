@@ -718,6 +718,15 @@ footer.site.footer .micro .item {
   text-align: center;
 }
 
+.text.big {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.text.lead {
+  font-family: serif;
+}
+
 .text.meta {
   color: #bbb;
 }
@@ -790,6 +799,10 @@ body.businesses main.content {
   margin-top: 3rem;
   background: url("/assets/img/map.jpg") no-repeat center center fixed;
   background-size: cover;
+}
+
+body.about main.content {
+  margin-top: 2rem;
 }
 
 #blogList {
@@ -13803,14 +13816,17 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 .calendar.list .item {
-  border-left: 5px solid transparent;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  border-left: .5rem solid transparent;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.calendar.list .item:hover {
-  padding-left: 10px;
-  border-left-color: #bbb;
+.calendar.list .item.primary {
+  border-color: #21BA45;
+}
+
+.calendar.list .item.secondary {
+  border-color: #EFEEEE;
 }
 
 .calendar.list .item .header,

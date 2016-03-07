@@ -1,0 +1,205 @@
+<script type="text/javascript">
+
+    (function (window) {
+
+        window.Calendar = function (calendarId, options) {
+
+            var today = new Date();
+            var iso = today.toJSON();
+
+            this.options = $.extend({
+                class: '',
+                maxResults: 10,
+                timeMin: iso,
+                orderBy: "startTime",
+                target: '#calendarList',
+                template: '#calendarEventTmpl'
+            }, options);
+
+            this.events = [];
+            this.apiKey = "{{ site.api.google.browser_key }}";
+            this.calendar = calendarId;
+
+            this.params = {
+                key: this.apiKey,
+                timeMin: this.options.timeMin,
+                maxResults: this.options.maxResults,
+                singleEvents: true,
+                orderBy: this.options.orderBy
+            };
+
+            this.fetchItems();
+        };
+
+        window.Calendar.prototype = {
+
+            _serializeParams: function () {
+
+                var params = '';
+
+                $.each(this.params, function (key, prop) {
+                    if (key == 'key') {
+                        params += key + '=' + prop;
+                        return;
+                    }
+
+                    params += '&' + key + '=' + prop;
+                });
+
+                this.serializedParams = params;
+            },
+
+            _formatTimeHHMMA: function (d) {
+                function z(n) {
+                    return (n < 10 ? '0' : '') + n
+                }
+
+                if (d.getHours()) {
+                    var h = d.getHours();
+                    return (h % 12 || 12) + ':' + z(d.getMinutes()) + ' ' + (h < 12 ? 'AM' : 'PM');
+                }
+
+                return false;
+            },
+
+            _setEventDate: function (item) {
+
+                var date = {start: {}, end: {}};
+
+                date.start.raw = new Date(item.start.dateTime || item.start.date);
+                date.end.raw = new Date(item.end.dateTime || item.end.date);
+                date.start.date = date.start.raw.toDateString();
+                date.end.date = date.end.raw.toDateString();
+                date.sameDay = (date.start.date == date.end.date);
+
+                // All day event, not times
+                // Google Cal sends only date prop if all day, ow dateTime
+                if (item.start.date) {
+                    date.allDay = true;
+                    return date;
+                }
+
+                // Time specific event
+                date.start.time = this._formatTimeHHMMA(date.start.raw);
+                date.end.time = this._formatTimeHHMMA(date.end.raw);
+
+                return date;
+            },
+
+            _getLink: function (string) {
+                var link = string && string.split('href=')[1];
+                if (link) {
+                    link = link.replace(/\"/g, '').replace(/\'/g, '');
+                    return link.split(' ')[0].split('>')[0];
+                }
+                return false;
+            },
+
+            fetchItems: function () {
+
+                var self = this;
+                this._serializeParams();
+
+                $.ajax({
+                    type: 'GET',
+                    url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + this.calendar + '/events?' + this.serializedParams),
+                    dataType: 'json',
+                    success: function (response) {
+                        self.response = response;
+                        self.setEvents();
+                    },
+                    error: function (response) {
+                        self.response = response;
+                    }
+                });
+            },
+
+            setEvents: function () {
+                if (!this.response) {
+                    this.fetchItems();
+                }
+
+                var events = [];
+                var self = this;
+
+                $.each(this.response.items, function (index, item) {
+                    var event = {};
+
+                    event.class = self.options.class;
+                    event.date = self._setEventDate(item);
+
+                    event.title = item.summary || '';
+                    event.description = item.description || '';
+                    event.link = self._getLink(item.description);
+                    event.location = item.location || '';
+                    events.push(event);
+                });
+
+                this.events = events;
+            },
+
+            compileList: function () {
+                var tmpl = this.options.template;
+                var source = $(tmpl).html();
+
+                var template = Handlebars.compile(source);
+
+                $(this.options.target).append(template({events: this.events}));
+                $(this.options.target).find('.ui.active.dimmer').removeClass('active');
+            }
+        };
+
+        window.Calendars = function (calendars, options) {
+
+            this.options = $.extend({
+                target: '#calendarList',
+                template: '#calendarEventTmpl'
+            }, options);
+
+            this.calendars = $.map(calendars, function (calendar) {
+
+                var options = $.extend(options, calendar.options);
+                return new Calendar(calendar.id, options);
+            });
+        };
+
+        window.Calendars.prototype = {
+
+            setEvents: function () {
+
+                var allEvents = [];
+
+                $.each(this.calendars, function (index, calendar) {
+                    $.map(calendar.events, function (n) {
+                        allEvents.push(n);
+                    });
+                });
+
+                allEvents.sort(function (a, b) {
+                    var a1 = a.date.start.raw,
+                            b1 = b.date.start.raw;
+
+                    if (a1 == b1) return 0;
+
+                    return a1 > b1
+                            ? 1
+                            : -1;
+                });
+
+                this.events = allEvents;
+            },
+
+            compileList: function () {
+
+                var tmpl = this.options.template;
+                var source = $(tmpl).html();
+
+                var template = Handlebars.compile(source);
+
+                $(this.options.target).append(template({events: this.events}));
+                $(this.options.target).find('.ui.active.dimmer').removeClass('active');
+            }
+        }
+
+    })(window);
+</script>

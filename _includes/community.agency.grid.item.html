@@ -1,0 +1,38 @@
+<div class="ui two column stackable grid">
+    <div class="ten wide column">
+        <h4 class="ui header">District: {{ include.agency.district }}</h4>
+        <div class="ui list">
+            <div class="item">{{ include.agency.rep.name }}</div>
+            <div class="item">
+                <a href="mailto:{{ include.agency.rep.email }}" target="_blank">
+                    {{ include.agency.rep.email }}
+                </a>
+            </div>
+            <div class="item">
+                <div class="ui divider"></div>
+            </div>
+            {% if include.agency.term %}
+            <div class="item">Term start: {{ include.agency.term.start }}</div>
+            <div class="item">Term end: {{ include.agency.term.end }}</div>
+            {% endif %}
+            {% if include.agency.rep.profile_url %}
+            <div class="item">
+                <a href="{{ include.agency.rep.profile_url }}">
+                    Profile
+                </a>
+            </div>
+            {% endif %}
+            <div class="item">
+                <a href="{{ include.agency.agency_url }}" target="_blank">
+                    Agency Website
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="six wide column">
+        {% assign img = include.agency.rep.img_url %}
+        {% if img and img != '' %}
+        <img class="ui fluid image" src="{{ img }}">
+        {% endif %}
+    </div>
+</div>

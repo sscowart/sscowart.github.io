@@ -1,0 +1,20 @@
+council:
+  agency_url: "//www.chattanooga.gov/city-council"
+  district: "7"
+  rep:
+    name: "Chris Anderson"
+    email: "canderson@chattanooga.gov"
+    img_url: "//www.chattanooga.gov/images/citymedia/police/Council/Anderson_web.jpg"
+    profile_url: "//www.chattanooga.gov/city-council/council-members/chris-anderson-district-7" 
+  term:
+    start: April 15, 2013
+    end: March 7, 2017
+
+police: 
+  agency_url: "//www.chattanooga.gov/police-department"
+  district: Adam South
+  rep:
+    name: "Lt. Ponda Foster"
+    email: "foster_ponda@chattanooga.gov"
+    img_url: "//openchattanooga.com/cpd-zones/images/foster.jpg"
+    profile_url: "//www.chattanooga.gov/police-department/neighborhood-policing"

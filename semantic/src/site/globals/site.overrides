@@ -46,6 +46,15 @@ footer.site.footer {
 
 .text {
 
+    &.big {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+
+    &.lead {
+        font-family: serif;
+    }
+
     &.meta {
         color: @colorGray;
     }
@@ -118,6 +127,10 @@ body.businesses main.content {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+body.about  main.content {
+    margin-top: 2rem;
 }
 
 #blogList {

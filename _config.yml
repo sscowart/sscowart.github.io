@@ -25,7 +25,9 @@ api:
     access_token: '3005385170.62da9c3.16f1ccff34a04cda9bad2d8cb84d2d3e'
   google:
     browser_key: 'AIzaSyCn2E1OrXRdTDXToluT89RwF_eh3QEMhR4'
-    calendar: '7jj7l7eujqefdnq7gt2cgmbei0@group.calendar.google.com'
+    calendars: 
+      primary: '7jj7l7eujqefdnq7gt2cgmbei0@group.calendar.google.com'
+      secondary: 'u0e0o76bd7to6rhfmdph25n488@group.calendar.google.com'
 
 forms:
   update_site: '//goo.gl/forms/RTbxOe2JHa'
