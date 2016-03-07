@@ -6,7 +6,7 @@
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description"
           content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,800|Montserrat:700,400'
           type='text/css'>
     <link rel="stylesheet" href="{{ '/semantic/dist/semantic.min.css' | prepend: site.baseurl }}" type='text/css'>

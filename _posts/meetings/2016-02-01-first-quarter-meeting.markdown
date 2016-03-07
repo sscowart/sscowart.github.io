@@ -18,12 +18,12 @@ We want to thank everyone who came out to our **January 28th meeting at Mean Mug
 We introduced our new board and a new structure for delegating ideas.  Please see new titles and task areas for each board member below:
 
 |Member | Task Area| Contact|
-|-------+--------+------|
+|---|---|---|
 |Dan Rose | Collaboration| collaborate@sscowart.com|
 |James Holland | Membership| membership@sscowart.com|
 |Roger Rupp | Initiatives| initiatives@sscowart.com|
 |Stacey Weaver | Communication| communication@sscowart.com|
-|Bobby Ankar | Treasurer/Administration| finance@sscowart.com|
+|Bobby Ankar | Finance & Admin| finance@sscowart.com|
 
 
 #### Gettin' stuff done
