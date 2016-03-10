@@ -13,7 +13,11 @@ email: hello@sscowart.com
 description: Information, connection, and resources for the Southside Cowart Place Neighborhood Association in beautiful Chattanooga, TN.
 
 payments:
-  link: '#'
+  dues: '25'
+  link: '//paypal.me/sscowart'
+
+analytics:
+  google: 'UA-74831861-1'
 
 # Site API settings
 # ========================================

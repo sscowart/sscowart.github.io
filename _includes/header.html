@@ -4,7 +4,8 @@
     </a>
     {% include nav.links.html %}
     <div class="right menu">
-        <a href="{{ site.payments.link }}" class="item" title="Pay Dues">
+        <a href="{{ site.payments.link }}{% if site.payments.dues %}/{{site.payments.dues}}{% endif %}" class="item"
+           title="Pay Dues">
             <i class="circular dollar icon"></i>
         </a>
         <a href="{{ site.baseurl }}/contact/" class="item" title="Contact us">

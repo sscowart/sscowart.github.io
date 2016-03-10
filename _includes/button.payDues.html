@@ -1,3 +1,4 @@
-<a href="{{ site.payments.link }}" class="ui massive fluid yellow button">
+<a href="{{ site.payments.link }}{% if site.payments.dues %}/{{site.payments.dues}}{% endif %}"
+   class="ui massive fluid yellow button">
     <i class="dollar icon"></i> Pay Dues
 </a>
