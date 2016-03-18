@@ -9,19 +9,20 @@
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
     flex-direction: column;
 }
 
 .pusher > main {
     padding: 3.8rem 0;
-    -webkit-box-flex: 1;   /* OLD - iOS 6-, Safari 3.1-6 */
-    -webkit-flex: 1;       /* Safari 6.1+. iOS 7.1+, BB10 */
-    -ms-flex: 1;           /* IE 10 */
-    flex: 1;               /* NEW, Spec - Firefox, Chrome, Opera */
+    -webkit-box-flex: 1 0 auto;   /* OLD - iOS 6-, Safari 3.1-6 */
+    -webkit-flex: 1 0 auto;       /* Safari 6.1+. iOS 7.1+, BB10 */
+    -ms-flex: 1 0 auto;           /* IE 10 */
+    flex: 1 0 auto;               /* NEW, Spec - Firefox, Chrome, Opera */
 }
 
 footer.site.footer {
+    flex-shrink: 0;
     
     @spacing: 1rem;
     
