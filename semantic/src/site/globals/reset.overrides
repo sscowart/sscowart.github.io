@@ -2,6 +2,17 @@
          Site Overrides
 *******************************/
 
+// Per the semantic-ui docs
+// For sidebars on iOS
+html.ios {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+html.ios,
+html.ios body {
+  height: initial !important;
+}
+
 .pointer {
     cursor: pointer;
 }
