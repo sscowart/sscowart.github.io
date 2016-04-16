@@ -2,12 +2,12 @@
          Site Overrides
 *******************************/
 
-
+/*
 .pusher {
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
+    display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6
+    display: -moz-box;         // OLD - Firefox 19- (buggy but mostly works)
+    display: -ms-flexbox;      // TWEENER - IE 10
+    display: -webkit-flex;     // NEW - Chrome
     display: flex;
     height: 100vh;
     flex-direction: column;
@@ -15,11 +15,12 @@
 
 .pusher > main {
     padding: 3.8rem 0;
-    -webkit-box-flex: 1 0 auto;   /* OLD - iOS 6-, Safari 3.1-6 */
-    -webkit-flex: 1 0 auto;       /* Safari 6.1+. iOS 7.1+, BB10 */
-    -ms-flex: 1 0 auto;           /* IE 10 */
-    flex: 1 0 auto;               /* NEW, Spec - Firefox, Chrome, Opera */
+    -webkit-box-flex: 1 0 auto;   // OLD - iOS 6-, Safari 3.1-6
+    -webkit-flex: 1 0 auto;       // Safari 6.1+. iOS 7.1+, BB10
+    -ms-flex: 1 0 auto;           // IE 10
+    flex: 1 0 auto;               // NEW, Spec - Firefox, Chrome, Opera
 }
+*/
 
 footer.site.footer {
     flex-shrink: 0;
@@ -118,6 +119,7 @@ body.home main.content .ui.alert.message {
 }
 
 body.initiatives main.content,
+body.proposals main.content,
 body.calendar main.content {
     margin-top: 1rem;
     background-color: @colorGrayLight;
