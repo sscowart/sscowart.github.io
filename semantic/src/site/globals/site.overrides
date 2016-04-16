@@ -22,6 +22,10 @@
 }
 */
 
+.pusher > main {
+    padding: 3.8rem 0;
+}
+
 footer.site.footer {
     flex-shrink: 0;
     
