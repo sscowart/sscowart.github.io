@@ -4,7 +4,8 @@
   "description": "SSCowart.com neighborhood association website",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic": "cd semantic && gulp watch"
   },
   "repository": {
     "type": "git",
