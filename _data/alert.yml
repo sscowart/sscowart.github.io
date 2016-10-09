@@ -1,7 +1,6 @@
 # Alert type affects the alert color. Options include: "positive","negative","info"
 
-- title: "New website"
+- title: "Oktoberfest"
   text: >
-    We've updated the website to better communicate with neighbors. Pay dues online,
-    browse local businesses, view the public calendar, and track initiative status.
-  type: "positive"
+    Join your neighbors on Thurs Oct 20, 2016 (6pm) at the Water Tower Park for Brats, Beer, and live music. More details in the calendar.
+  type: "info"
